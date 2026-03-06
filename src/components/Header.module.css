@@ -1,0 +1,43 @@
+.header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.navLink,
+.navLinkActive {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 0 6px 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-top: -0.75rem;
+  padding-top: calc(0.5rem + 0.75rem);
+  border-top: 3px solid transparent;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+.navLinkActive {
+  color: var(--text-primary);
+  border-top-color: var(--brand-yellow);
+}

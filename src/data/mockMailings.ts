@@ -1,0 +1,53 @@
+import type { Mailing } from '../types/mailing';
+
+export const MOCK_MAILINGS: Mailing[] = [
+  {
+    id: 'm1',
+    subject: 'Q1 Product Launch - Exclusive Preview',
+    createdAt: '2025-03-01T09:00:00Z',
+    updatedAt: '2025-03-05T14:00:00Z',
+    status: 'draft',
+    campaignId: 'camp-1',
+    recipientCount: 12,
+  },
+  {
+    id: 'm2',
+    subject: 'Sustainability Report 2024 – Key Findings',
+    createdAt: '2025-03-02T10:30:00Z',
+    updatedAt: '2025-03-04T11:00:00Z',
+    status: 'scheduled',
+    campaignId: 'camp-2',
+    recipientCount: 8,
+    scheduledFor: '2025-03-10T08:00:00Z',
+  },
+  {
+    id: 'm3',
+    subject: 'CEO Interview Opportunity – Forbes',
+    createdAt: '2025-02-28T08:00:00Z',
+    updatedAt: '2025-03-03T16:45:00Z',
+    status: 'sent',
+    campaignId: 'camp-3',
+    recipientCount: 1,
+    sentAt: '2025-03-01T10:00:00Z',
+  },
+  {
+    id: 'm4',
+    subject: 'Partnership Announcement: CloudCorp',
+    createdAt: '2025-03-01T12:00:00Z',
+    updatedAt: '2025-03-05T09:00:00Z',
+    status: 'sent',
+    campaignId: 'camp-4',
+    recipientCount: 5,
+    sentAt: '2025-03-02T14:00:00Z',
+  },
+  {
+    id: 'm5',
+    subject: 'Industry Survey – Embargoed Results',
+    createdAt: '2025-02-25T14:00:00Z',
+    updatedAt: '2025-03-04T10:20:00Z',
+    status: 'sent',
+    campaignId: 'camp-5',
+    recipientCount: 3,
+    sentAt: '2025-02-26T09:00:00Z',
+  },
+];

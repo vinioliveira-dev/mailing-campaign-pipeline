@@ -1,0 +1,142 @@
+.page {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0 0 320px;
+  width: 320px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebarTitle {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.mailingList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mailingItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.mailingItem:hover {
+  background: var(--brand-slate);
+  border-color: var(--border-subtle);
+}
+
+.mailingItemSelected {
+  border-color: var(--accent);
+  background: var(--bg-tertiary);
+}
+
+.mailingSubject {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.mailingMeta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 1.5rem 2rem;
+}
+
+.detail {
+  max-width: 560px;
+}
+
+.detailTitle {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.detailList {
+  margin: 0 0 1.5rem 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.detailList dt {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.detailList dd {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.statusDraft {
+  color: var(--text-secondary);
+}
+
+.statusScheduled {
+  color: var(--brand-yellow);
+}
+
+.statusSent {
+  color: #86efac;
+}
+
+.detailActions {
+  margin-top: 1.5rem;
+}
+
+.seeCampaignBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  font-weight: 500;
+}
+
+.seeCampaignBtn:hover {
+  background: var(--accent-hover);
+}
+
+.empty {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
