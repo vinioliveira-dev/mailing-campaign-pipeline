@@ -1,16 +1,23 @@
 import { useDroppable } from '@dnd-kit/core';
-import type { PipelineStage } from '../types/pitch';
 import type { Pitch } from '../types/pitch';
 import { PitchCard } from './PitchCard';
 import styles from './PipelineColumn.module.css';
 
 interface PipelineColumnProps {
-  stageId: PipelineStage;
+  stageId: string;
   label: string;
   pitches: Pitch[];
+  selectedPitchIds?: Set<string>;
+  onTogglePitchSelect?: (id: string) => void;
 }
 
-export function PipelineColumn({ stageId, label, pitches }: PipelineColumnProps) {
+export function PipelineColumn({
+  stageId,
+  label,
+  pitches,
+  selectedPitchIds,
+  onTogglePitchSelect,
+}: PipelineColumnProps) {
   const { setNodeRef, isOver } = useDroppable({ id: stageId });
 
   return (
@@ -24,7 +31,12 @@ export function PipelineColumn({ stageId, label, pitches }: PipelineColumnProps)
       </div>
       <div className={styles.cards}>
         {pitches.map((pitch) => (
-          <PitchCard key={pitch.id} pitch={pitch} />
+          <PitchCard
+            key={pitch.id}
+            pitch={pitch}
+            isSelected={selectedPitchIds?.has(pitch.id)}
+            onToggleSelect={onTogglePitchSelect}
+          />
         ))}
       </div>
     </div>

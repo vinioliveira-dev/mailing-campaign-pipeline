@@ -4,9 +4,11 @@ import styles from './PitchCard.module.css';
 
 interface PitchCardProps {
   pitch: Pitch;
+  isSelected?: boolean;
+  onToggleSelect?: (id: string) => void;
 }
 
-export function PitchCard({ pitch }: PitchCardProps) {
+export function PitchCard({ pitch, isSelected = false, onToggleSelect }: PitchCardProps) {
   const {
     attributes,
     listeners,
@@ -23,18 +25,29 @@ export function PitchCard({ pitch }: PitchCardProps) {
     <div
       ref={setNodeRef}
       style={style}
-      className={`${styles.card} ${isDragging ? styles.dragging : ''}`}
-      {...attributes}
-      {...listeners}
+      className={`${styles.card} ${isDragging ? styles.dragging : ''} ${isSelected ? styles.selected : ''}`}
     >
-      <h3 className={styles.title}>{pitch.title}</h3>
-      <div className={styles.meta}>
-        <span className={styles.journalist}>{pitch.journalistName}</span>
-        <span className={styles.outlet}>{pitch.outlet}</span>
-      </div>
-      {pitch.summary && (
-        <p className={styles.summary}>{pitch.summary}</p>
+      {onToggleSelect && (
+        <div className={styles.checkboxWrap} onClick={(e) => e.stopPropagation()}>
+          <input
+            type="checkbox"
+            checked={isSelected}
+            onChange={() => onToggleSelect(pitch.id)}
+            aria-label={`Select ${pitch.title}`}
+            className={styles.checkbox}
+          />
+        </div>
       )}
+      <div className={styles.dragHandle} {...attributes} {...listeners}>
+        <h3 className={styles.title}>{pitch.title}</h3>
+        <div className={styles.meta}>
+          <span className={styles.journalist}>{pitch.journalistName}</span>
+          <span className={styles.outlet}>{pitch.outlet}</span>
+        </div>
+        {pitch.summary && (
+          <p className={styles.summary}>{pitch.summary}</p>
+        )}
+      </div>
     </div>
   );
 }

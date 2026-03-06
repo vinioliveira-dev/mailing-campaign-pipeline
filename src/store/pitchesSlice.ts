@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { Pitch, PipelineStage } from '../types/pitch';
+import type { Pitch } from '../types/pitch';
 
 export interface PitchesState {
   items: Pitch[];
@@ -29,7 +29,7 @@ const pitchesSlice = createSlice({
     },
     movePitch: (
       state,
-      action: PayloadAction<{ pitchId: string; newStage: PipelineStage }>
+      action: PayloadAction<{ pitchId: string; newStage: string }>
     ) => {
       const { pitchId, newStage } = action.payload;
       const pitch = state.items.find((p) => p.id === pitchId);
@@ -37,6 +37,20 @@ const pitchesSlice = createSlice({
         pitch.stage = newStage;
         pitch.updatedAt = new Date().toISOString();
       }
+    },
+    setPitchesStage: (
+      state,
+      action: PayloadAction<{ pitchIds: string[]; newStage: string }>
+    ) => {
+      const { pitchIds, newStage } = action.payload;
+      const set = new Set(pitchIds);
+      const now = new Date().toISOString();
+      state.items.forEach((p) => {
+        if (set.has(p.id)) {
+          p.stage = newStage;
+          p.updatedAt = now;
+        }
+      });
     },
     addPitch: (state, action: PayloadAction<Pitch>) => {
       state.items.push(action.payload);
@@ -58,6 +72,7 @@ export const {
   setLoading,
   setError,
   movePitch,
+  setPitchesStage,
   addPitch,
   removePitch,
   updatePitch,

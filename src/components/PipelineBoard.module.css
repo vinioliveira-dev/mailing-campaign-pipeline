@@ -39,3 +39,75 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 100;
 }
+
+.bulkBar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0 1rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.bulkLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.bulkActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bulkSetLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.bulkSelect {
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
+.bulkClear {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+}
+
+.addColumn {
+  flex: 0 0 120px;
+  min-width: 120px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+.addColumnBtn {
+  padding: 0.75rem 1rem;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-radius: 10px;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.addColumnBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

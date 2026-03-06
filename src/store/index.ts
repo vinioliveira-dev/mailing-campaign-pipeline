@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import pitchesReducer from './pitchesSlice';
 import mailingsReducer from './mailingsSlice';
+import stagesReducer from './stagesSlice';
 
 export const store = configureStore({
   reducer: {
     pitches: pitchesReducer,
     mailings: mailingsReducer,
+    stages: stagesReducer,
   },
 });
 

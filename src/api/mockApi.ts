@@ -1,4 +1,4 @@
-import type { Pitch, PipelineStage } from '../types/pitch';
+import type { Pitch } from '../types/pitch';
 import type { Mailing } from '../types/mailing';
 import { MOCK_PITCHES } from '../data/mockPitches';
 import { MOCK_MAILINGS } from '../data/mockMailings';
@@ -15,7 +15,7 @@ export const mockApi = {
     return [...MOCK_PITCHES];
   },
 
-  async movePitch(pitchId: string, newStage: PipelineStage): Promise<Pitch> {
+  async movePitch(pitchId: string, newStage: string): Promise<Pitch> {
     await delay(400);
     const pitch = MOCK_PITCHES.find((p) => p.id === pitchId);
     if (!pitch) throw new Error('Pitch not found');

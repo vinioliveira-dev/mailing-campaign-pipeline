@@ -2,16 +2,46 @@
   background: #fff;
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
-  cursor: grab;
+  padding: 0;
   transition: box-shadow 0.2s, border-color 0.2s;
   flex-shrink: 0;
   min-width: 0;
   overflow-wrap: break-word;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
 }
 
-.card:active {
+.card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+.checkboxWrap {
+  flex-shrink: 0;
+  padding: 0.75rem 0 0 0.75rem;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.dragHandle {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem 0.75rem 0.5rem;
+  cursor: grab;
+}
+
+.card:active .dragHandle {
   cursor: grabbing;
+}
+
+.card:hover .dragHandle {
+  border-color: transparent;
 }
 
 .card:hover {
